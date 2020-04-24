@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Covid-19 Tracker</string>
+    <string name="worldwide_active">Active</string>
+    <string name="worldwide_recovered">Recovered</string>
+    <string name="worldwide_death">Deaths</string>
+    <string name="button_text">In India</string>
+</resources>
