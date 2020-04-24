@@ -1,6 +1,7 @@
 package com.example.covid_19tracker;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,21 +23,22 @@ public class CaseAdapter extends ArrayAdapter<Case> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.states_list, parent, false);
+                    R.layout.india_cases, parent, false);
         }
 
         Case currentCase = getItem(position);
 
-        TextView stateTextView = (TextView) listItemView.findViewById(R.id.state_name_view);
+        TextView stateTextView = listItemView.findViewById(R.id.state_name_view);
+        Log.d("test","name" + currentCase.getStateName());
         stateTextView.setText(currentCase.getStateName());
 
-        TextView activeTextView = (TextView) listItemView.findViewById(R.id.active_case_view);
+        TextView activeTextView = listItemView.findViewById(R.id.active_case_view);
         activeTextView.setText(currentCase.getActiveCases());
 
-        TextView recoveredTextView = (TextView) listItemView.findViewById(R.id.recovered_case_view);
+        TextView recoveredTextView = listItemView.findViewById(R.id.recovered_case_view);
         recoveredTextView.setText(currentCase.getRecoveredCases());
 
-        TextView deathTextView = (TextView) listItemView.findViewById(R.id.death_case_view);
+        TextView deathTextView = listItemView.findViewById(R.id.death_case_view);
         deathTextView.setText(currentCase.getDeaths());
 
         return listItemView;

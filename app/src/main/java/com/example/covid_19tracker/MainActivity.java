@@ -14,15 +14,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //this function is called by Coracle Ad TextView
-    // open given link in browser
-    public  void showAd(View v){
-        final  String url = "http://www.coracle.in";
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +34,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //this function is called by Coracle Ad TextView
+    // open given link in browser
+
+
+    public  void showAd(View v){
+        final  String url = "http://www.coracle.in";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }
