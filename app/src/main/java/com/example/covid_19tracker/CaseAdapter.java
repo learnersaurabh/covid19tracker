@@ -21,6 +21,7 @@ public class CaseAdapter extends ArrayAdapter<Case> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View listItemView = convertView;
+
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.india_cases, parent, false);
@@ -29,7 +30,6 @@ public class CaseAdapter extends ArrayAdapter<Case> {
         Case currentCase = getItem(position);
 
         TextView stateTextView = listItemView.findViewById(R.id.state_name_view);
-        Log.d("test","name" + currentCase.getStateName());
         stateTextView.setText(currentCase.getStateName());
 
         TextView activeTextView = listItemView.findViewById(R.id.active_case_view);
