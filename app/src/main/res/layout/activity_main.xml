@@ -1,94 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_margin="0dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@color/root_background">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:scaleType="fitXY"
-        android:layout_marginTop="0dp"
-        android:src="@drawable/world_map"/>
+    android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:background="@color/root_background"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="4"
+            android:scaleType="fitXY"
+            android:src="@drawable/world_map" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:text="@string/worldwide_active"
+            android:textColor="@color/text_view_color"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/total_gobal_confirmed"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/color_for_active_case_view"
+            android:textScaleX="2"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:text="@string/worldwide_recovered"
+            android:textColor="@color/text_view_color"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/total_gobal_recovered"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/color_for_recovered_case_view"
+            android:textScaleX="2"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:text="@string/worldwide_death"
+            android:textColor="@color/text_view_color"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/total_gobal_deceased"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/color_for_death_case_view"
+            android:textScaleX="2"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/button_In_India"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:background="@drawable/mybutton"
+            android:paddingLeft="48dp"
+            android:paddingTop="8dp"
+            android:paddingRight="48dp"
+            android:paddingBottom="8dp"
+            android:text="@string/button_text"
+            android:textColor="@color/button_text"
+            android:textSize="32sp" />
+
+        <ImageView
+            android:id="@+id/coracle_ad"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.3"
+            android:onClick="showAd"
+            android:scaleType="fitXY"
+            android:src="@drawable/coracle_ad" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/home_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/worldwide_active"
-        android:textColor="@color/text_view_color"
-        android:textSize="24sp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp" />
+        android:layout_centerInParent="true" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="123678"
-        android:textColor="@color/color_for_active_case_view"
-        android:textSize="24sp"
-        android:textScaleX="2"
-        android:gravity="center"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/worldwide_recovered"
-        android:textColor="@color/text_view_color"
-        android:textSize="24sp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="13678"
-        android:textColor="@color/color_for_recovered_case_view"
-        android:textSize="24sp"
-        android:textScaleX="2"
-        android:gravity="center"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/worldwide_death"
-        android:textSize="24sp"
-        android:textColor="@color/text_view_color"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="3678"
-        android:textScaleX="2"
-        android:textColor="@color/color_for_death_case_view"
-        android:textSize="24sp"
-        android:gravity="center"/>
-    <Button
-        android:id="@+id/button_In_India"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:paddingRight="48dp"
-        android:paddingLeft="48dp"
-        android:layout_margin="8dp"
-        android:text="@string/button_text"
-        android:textSize="32sp"
-        android:textColor="@color/button_text"
-        android:background="@drawable/mybutton"
-        android:layout_gravity="center_horizontal"/>
-    <ImageView
-        android:id="@+id/coracle_ad"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.3"
-        android:scaleType="fitXY"
-        android:onClick="showAd"
-        android:src="@drawable/coracle_ad"/>
-</LinearLayout>
+</RelativeLayout>
