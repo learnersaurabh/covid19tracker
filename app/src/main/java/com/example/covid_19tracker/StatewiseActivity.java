@@ -1,12 +1,12 @@
 package com.example.covid_19tracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,10 +23,10 @@ import java.util.ArrayList;
 
 public class StatewiseActivity extends AppCompatActivity {
 
-    ProgressBar progressBar;
-
-    ListView listView = findViewById(R.id.list);
-
+//    ProgressBar progressBar;
+    ListView listView;
+    final ArrayList<Case> cases = new ArrayList<>();
+    boolean progress = true;
 
 
     @Override
@@ -34,11 +34,11 @@ public class StatewiseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.states_list);
 
+        listView = findViewById(R.id.list);
+
         final ArrayList<Case> cases = new ArrayList<>();
 
         getData();
-
-        listView.setAdapter(new CaseAdapter(this, cases));
 
     }
     private void getData() {
@@ -52,11 +52,10 @@ public class StatewiseActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                progressBar.setVisibility(View.GONE);
+//                progressBar.setVisibility(View.GONE);
 
                 try {
 
-                    final ArrayList<Case> cases = new ArrayList<>();
 
                     JSONObject root = new JSONObject(response);
                     JSONArray statewiseJSONArray = root.getJSONArray("statewise");
@@ -72,7 +71,7 @@ public class StatewiseActivity extends AppCompatActivity {
                     }
 
 
-                    listView.setAdapter(new CaseAdapter(StatewiseActivity.this, cases));
+                    listView.setAdapter(new CaseAdapter(progress,StatewiseActivity.this, cases));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -82,7 +81,9 @@ public class StatewiseActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                progressBar.setVisibility(View.GONE);
+//                progressBar.setVisibility(View.GONE);
+                listView.setAdapter(new CaseAdapter(progress,StatewiseActivity.this, cases));
+
 
                 Log.d("Error In Response", error.toString());
 
