@@ -6,14 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class CaseAdapter extends ArrayAdapter<Case> {
+    private boolean progress;
 
-    CaseAdapter(Activity context, ArrayList<Case> cases) {
+    CaseAdapter(Boolean progress, Activity context, ArrayList<Case> cases) {
         super(context, 0, cases);
+        this.progress = progress;
 
     }
 
@@ -21,6 +24,7 @@ public class CaseAdapter extends ArrayAdapter<Case> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View listItemView = convertView;
+
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.india_cases, parent, false);
@@ -29,7 +33,7 @@ public class CaseAdapter extends ArrayAdapter<Case> {
         Case currentCase = getItem(position);
 
         TextView stateTextView = listItemView.findViewById(R.id.state_name_view);
-        Log.d("test","name" + currentCase.getStateName());
+        assert currentCase != null;
         stateTextView.setText(currentCase.getStateName());
 
         TextView activeTextView = listItemView.findViewById(R.id.active_case_view);
@@ -40,6 +44,12 @@ public class CaseAdapter extends ArrayAdapter<Case> {
 
         TextView deathTextView = listItemView.findViewById(R.id.death_case_view);
         deathTextView.setText(currentCase.getDeaths());
+
+        if (progress) {
+            ProgressBar progressBar = listItemView.findViewById(R.id.state_progress_bar);
+            Log.d("progress", "called");
+            progressBar.setVisibility(View.GONE);
+        }
 
         return listItemView;
     }
